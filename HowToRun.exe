@@ -1,0 +1,57 @@
+Project Execution Guide
+1. Prerequisites
+Before executing the project, ensure the following software is installed on your system:
+
+Java Development Kit (JDK): Version 17 or higher.  
+
+MySQL Server: To host the project database.  
+
+Integrated Development Environment (IDE): VS Code, IntelliJ IDEA, or Eclipse.
+
+Required Libraries (.jar files):
+
+mysql-connector-java.jar (For JDBC connectivity).  
+
+rs2xml.jar (For populating JTables with database results).  
+
+2. Database Configuration
+Your project relies on a backend database named oops. Follow these steps to set it up:
+
+Open MySQL Command Line Client or MySQL Workbench.
+
+Create the database: CREATE DATABASE oops;.
+
+Switch to the database: USE oops;.
+
+Execute the provided database.sql script to create the students, lab_records, and login tables.
+
+Important: Verify that the credentials in your Conn.java file (username and password) match your local MySQL settings.
+
+3. Setting Up the Classpath
+For the project to compile and run without errors, the external libraries must be linked:
+
+In VS Code: Go to the "Java Projects" view, find "Referenced Libraries," and click the + icon to add the mysql-connector and rs2xml JAR files.
+
+In Command Line: Use the -cp flag to include the paths to your JAR files during compilation and execution.
+
+4. Steps to Execute
+The application follows a specific flow of execution:
+
+Compile the Project: Compile all .java files within the student/tracker package.
+
+Launch Login: Run the Login.java file first. This is the entry point for authentication.  
+
+Authentication: Enter the admin credentials (stored in your login table) to access the system.
+
+Dashboard Navigation: Once logged in, the Dashboard.java window will open:  
+
+You will see the master list of students/consumers.  
+
+Click on a specific row to view detailed lab or billing records for that individual.
+
+Use the "Back to Student List" button to return to the main page.
+
+5. Troubleshooting
+ClassNotFoundException: This means the JDBC driver or rs2xml.jar is not correctly added to your libraries.
+
+SQL Exception (Access Denied): Check the password in Conn.java.
